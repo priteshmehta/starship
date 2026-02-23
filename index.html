@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Ship - Space Dodge Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <!-- HUD - visible during gameplay -->
+            <div id="hud" class="hidden">
+                <div id="hud-left">
+                    <div id="score-display">Score: <span id="score">0</span></div>
+                    <div id="highscore-display">High Score: <span id="highscore">0</span></div>
+                </div>
+                <div id="hud-center">
+                    <div id="level-display">Level: <span id="level">1</span></div>
+                </div>
+                <div id="hud-right">
+                    <div id="lives-display">
+                        <span id="lives-label">Lives: </span>
+                        <span id="lives-icons"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen">
+                <h1>🚀 Star Ship</h1>
+                <p class="subtitle">Dodge asteroids, collect coins, survive!</p>
+                <div class="instructions">
+                    <p>⬆️ UP Arrow - Move Up</p>
+                    <p>⬇️ DOWN Arrow - Move Down</p>
+                </div>
+                <button id="start-btn" class="game-btn">Start Game</button>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="gameover-screen" class="screen hidden">
+                <h1>💥 Game Over</h1>
+                <div class="final-stats">
+                    <p>Final Score: <span id="final-score">0</span></p>
+                    <p>High Score: <span id="final-highscore">0</span></p>
+                    <p>Level Reached: <span id="final-level">1</span></p>
+                </div>
+                <button id="restart-btn" class="game-btn">Play Again</button>
+            </div>
+        </div>
+
+        <!-- Audio Controls -->
+        <div id="audio-controls">
+            <button id="mute-btn" title="Toggle Sound">🔊</button>
+        </div>
+    </div>
+
+    <!-- Game Scripts -->
+    <script src="js/game.js" type="module"></script>
+</body>
+</html>
