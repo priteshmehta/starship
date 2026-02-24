@@ -96,17 +96,12 @@ starship/
 ```bash
 npm run deploy:github
 ```
-Your game will be live at: `https://yourusername.github.io/starship`
+Your game will be live at: `https://priteshmehta.github.io/starship`
 
 ### 2. Netlify (Drag & Drop)
 1. Run `npm run build`
 2. Drag the `dist` folder to [netlify.com](https://netlify.com)
 3. Get instant URL!
-
-### 3. Vercel (Auto-Deploy)
-1. Push to GitHub
-2. Connect repository at [vercel.com](https://vercel.com)
-3. Auto-deploys on every push
 
 ### 4. Other Platforms
 - **Firebase Hosting**: `npm run deploy:config` then follow Firebase docs
@@ -130,31 +125,10 @@ Your game will be live at: `https://yourusername.github.io/starship`
 2. Tap "Add to Home Screen" prompt
 3. Or use Chrome menu → "Install app"
 
-## 🎨 Customization
-
-### Adding Your Own Graphics
-Replace the SVG files in `assets/images/`:
-- `spaceship.svg` - Player ship
-- `asteroid.svg` - Obstacles
-- `coin.svg` - Collectibles
 
 ### Adding Music
 Add an MP3 file at `assets/sounds/background-music.mp3` - it will play automatically!
 
-### Tweaking Gameplay
-Edit `CONFIG` object in `js/game.js`:
-```javascript
-const CONFIG = {
-    spaceship: {
-        speed: 400,        // Spaceship speed
-        lives: 3,          // Starting lives
-    },
-    level: {
-        duration: 45000    // 45 seconds per level
-    }
-    // ... more options
-};
-```
 
 ## 🏆 Game Stats & Features
 
@@ -183,17 +157,10 @@ Contributions welcome! Ideas for new features:
 
 MIT License - feel free to use this code for your own projects!
 
-## 🎯 Credits
-
-- **Game Engine**: Vanilla JavaScript + HTML5 Canvas
-- **Graphics**: Custom SVG artwork
-- **Audio**: Web Audio API procedural generation
-- **Icons**: Generated with custom SVG templates
-
 ---
 
 ### 🎮 Ready to play?
 
-**[▶️ PLAY NOW](https://yourusername.github.io/starship)**
+**[▶️ PLAY NOW](https://priteshmehta.github.io/starship)**
 
 Made with ❤️ for kids and space game enthusiasts!
