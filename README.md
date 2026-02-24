@@ -34,8 +34,8 @@ A fun space dodge game where you collect coins and avoid asteroids! Built with H
 ### Quick Start
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/star-ship-game.git
-cd star-ship-game
+git clone https://github.com/yourusername/starship.git
+cd starship
 
 # Start development server
 npm run dev
@@ -64,7 +64,7 @@ npm run deploy:config
 ## 📦 Project Structure
 
 ```
-star-ship-game/
+starship/
 ├── index.html          # Main game page
 ├── manifest.json       # PWA manifest
 ├── sw.js              # Service worker for offline support
@@ -96,7 +96,7 @@ star-ship-game/
 ```bash
 npm run deploy:github
 ```
-Your game will be live at: `https://yourusername.github.io/repository-name`
+Your game will be live at: `https://yourusername.github.io/starship`
 
 ### 2. Netlify (Drag & Drop)
 1. Run `npm run build`
@@ -194,6 +194,6 @@ MIT License - feel free to use this code for your own projects!
 
 ### 🎮 Ready to play?
 
-**[▶️ PLAY NOW](https://yourusername.github.io/star-ship-game)**
+**[▶️ PLAY NOW](https://yourusername.github.io/starship)**
 
 Made with ❤️ for kids and space game enthusiasts!

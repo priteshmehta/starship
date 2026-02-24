@@ -61,7 +61,7 @@ function deployToGitHubPages() {
 
         console.log('✅ Deployed to GitHub Pages!');
         console.log('🌐 Your game will be available at:');
-        console.log('   https://yourusername.github.io/star-ship-game');
+        console.log('   https://yourusername.github.io/starship');
 
         // Switch back to main branch
         execSync('git checkout main || git checkout master', { stdio: 'inherit' });
@@ -151,7 +151,7 @@ function createDeploymentFiles() {
 
     // Vercel config
     const vercelConfig = {
-        "name": "star-ship-game",
+        "name": "starship",
         "version": 2,
         "builds": [
             {

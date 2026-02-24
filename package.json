@@ -1,5 +1,5 @@
 {
-  "name": "star-ship-game",
+  "name": "starship",
   "version": "1.0.0",
   "description": "A fun space dodge game where you collect coins and avoid asteroids",
   "main": "index.html",
@@ -27,10 +27,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/star-ship-game.git"
+    "url": "git+https://github.com/yourusername/starship.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/star-ship-game/issues"
+    "url": "https://github.com/yourusername/starship/issues"
   },
-  "homepage": "https://yourusername.github.io/star-ship-game"
+  "homepage": "https://yourusername.github.io/starship"
 }
