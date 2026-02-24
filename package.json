@@ -1,0 +1,36 @@
+{
+  "name": "star-ship-game",
+  "version": "1.0.0",
+  "description": "A fun space dodge game where you collect coins and avoid asteroids",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "dev-alt": "python -m SimpleHTTPServer 8080",
+    "icons": "node generate-icons.js",
+    "build": "npm run icons && node build.js",
+    "preview": "cd dist && python3 -m http.server 8080",
+    "deploy": "npm run build && node deploy.js",
+    "deploy:github": "npm run build && node deploy.js --github",
+    "deploy:config": "node deploy.js --config"
+  },
+  "keywords": [
+    "game",
+    "space",
+    "arcade",
+    "html5",
+    "javascript",
+    "kids",
+    "mobile-friendly"
+  ],
+  "author": "Star Ship Game Developer",
+  "license": "MIT",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/star-ship-game.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/star-ship-game/issues"
+  },
+  "homepage": "https://yourusername.github.io/star-ship-game"
+}

@@ -2,8 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Star Ship - Space Dodge Game</title>
+    <meta name="description" content="A fun space dodge game where you collect coins and avoid asteroids. Play offline on any device!">
+    <meta name="keywords" content="space game, arcade game, kids game, mobile game, offline game">
+    <meta name="author" content="Star Ship Game Developer">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#0a0a20">
+    <meta name="msapplication-navbutton-color" content="#0a0a20">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- PWA settings -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Star Ship">
+
+    <!-- Icons for various platforms -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon-16.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+    <meta name="msapplication-TileImage" content="assets/icons/icon-144.png">
+    <meta name="msapplication-TileColor" content="#0a0a20">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -60,5 +84,121 @@
 
     <!-- Game Scripts -->
     <script src="js/game.js" type="module"></script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((registration) => {
+                        console.log('✅ SW registered: ', registration);
+
+                        // Handle updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            if (newWorker) {
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        // New content available, ask user to refresh
+                                        if (confirm('🎮 New version available! Refresh to update?')) {
+                                            window.location.reload();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    })
+                    .catch((registrationError) => {
+                        console.log('❌ SW registration failed: ', registrationError);
+                    });
+            });
+
+            // Listen for messages from SW
+            navigator.serviceWorker.addEventListener('message', event => {
+                if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
+                    if (confirm('🎮 Game update available! Restart to update?')) {
+                        event.ports[0].postMessage({action: 'skipWaiting'});
+                    }
+                }
+            });
+        }
+
+        // PWA install prompt
+        let deferredPrompt;
+        let installButton = null;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('💾 PWA install prompt available');
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Show custom install button
+            showInstallButton();
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('🎉 PWA was installed');
+            hideInstallButton();
+            deferredPrompt = null;
+        });
+
+        function showInstallButton() {
+            if (!installButton) {
+                installButton = document.createElement('button');
+                installButton.innerText = '📱 Install Game';
+                installButton.className = 'install-btn';
+                installButton.style.cssText = `
+                    position: fixed;
+                    bottom: 80px;
+                    right: 20px;
+                    z-index: 1000;
+                    padding: 10px 20px;
+                    background: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 25px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    transition: all 0.3s ease;
+                `;
+
+                installButton.addEventListener('click', async () => {
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        console.log(`PWA install outcome: ${outcome}`);
+                        deferredPrompt = null;
+                        hideInstallButton();
+                    }
+                });
+
+                document.body.appendChild(installButton);
+            }
+        }
+
+        function hideInstallButton() {
+            if (installButton) {
+                installButton.remove();
+                installButton = null;
+            }
+        }
+
+        // Handle iOS PWA install instructions
+        function isiOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent);
+        }
+
+        function isInStandaloneMode() {
+            return ('standalone' in window.navigator) && (window.navigator.standalone);
+        }
+
+        // Show iOS install instructions
+        if (isiOS() && !isInStandaloneMode()) {
+            // Could show custom iOS install instructions here
+            console.log('📱 iOS user - PWA can be installed via Safari Share menu');
+        }
+    </script>
 </body>
 </html>

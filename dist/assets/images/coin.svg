@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <defs>
+    <!-- Gold gradient -->
+    <radialGradient id="goldGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#fff59d"/>
+      <stop offset="30%" style="stop-color:#ffeb3b"/>
+      <stop offset="70%" style="stop-color:#ffc107"/>
+      <stop offset="100%" style="stop-color:#ff8f00"/>
+    </radialGradient>
+    <!-- Inner ring gradient -->
+    <linearGradient id="innerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffe082"/>
+      <stop offset="100%" style="stop-color:#ffb300"/>
+    </linearGradient>
+    <!-- Shine -->
+    <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:white;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer shadow -->
+  <circle cx="32" cy="32" r="26" fill="rgba(0,0,0,0.3)"/>
+
+  <!-- Main coin body -->
+  <circle cx="30" cy="30" r="26" fill="url(#goldGrad)" stroke="#b7791f" stroke-width="2"/>
+
+  <!-- Inner ring -->
+  <circle cx="30" cy="30" r="20" fill="none" stroke="url(#innerGrad)" stroke-width="2"/>
+
+  <!-- Star symbol -->
+  <path d="M30,12 L33.5,23 L45,23 L36,30 L39,41 L30,34 L21,41 L24,30 L15,23 L26.5,23 Z"
+        fill="#b7791f" opacity="0.6"/>
+
+  <!-- Highlight shine -->
+  <ellipse cx="22" cy="20" rx="8" ry="5" fill="url(#shineGrad)" transform="rotate(-30 22 20)"/>
+
+  <!-- Small sparkle -->
+  <circle cx="42" cy="18" r="2" fill="white" opacity="0.6"/>
+</svg>

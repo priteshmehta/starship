@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#2a5298"/>
+      <stop offset="100%" style="stop-color:#1e3c72"/>
+    </radialGradient>
+    <linearGradient id="ship" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4488ff"/>
+      <stop offset="50%" style="stop-color:#6ab7ff"/>
+      <stop offset="100%" style="stop-color:#88ccff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+
+  <!-- Stars -->
+  <circle cx="102.4" cy="153.6" r="10.24" fill="white" opacity="0.8"/>
+  <circle cx="409.6" cy="102.4" r="7.68" fill="white" opacity="0.6"/>
+  <circle cx="435.2" cy="358.4" r="5.12" fill="white" opacity="0.7"/>
+  <circle cx="76.8" cy="409.6" r="5.12" fill="white" opacity="0.5"/>
+
+  <!-- Spaceship -->
+  <g transform="translate(51.19999999999999, 153.6)">
+    <!-- Engine flame -->
+    <ellipse cx="40.96000000000001" cy="102.4" rx="32.768" ry="49.152" fill="#ff6600" opacity="0.8"/>
+
+    <!-- Main body -->
+    <path d="M81.92000000000002,61.44 L286.71999999999997,49.152 L348.16,102.4 L286.71999999999997,155.64800000000002 L81.92000000000002,143.35999999999999 Z" fill="url(#ship)"/>
+
+    <!-- Wing top -->
+    <path d="M122.88,73.728 L163.84000000000003,20.480000000000004 L245.76,40.96000000000001 L204.8,81.92000000000002 Z" fill="#3366cc"/>
+
+    <!-- Wing bottom -->
+    <path d="M122.88,131.072 L163.84000000000003,184.32000000000002 L245.76,163.84000000000003 L204.8,122.88 Z" fill="#3366cc"/>
+
+    <!-- Cockpit -->
+    <ellipse cx="253.952" cy="102.4" rx="32.768" ry="24.576" fill="#00ffff"/>
+
+    <!-- Highlight -->
+    <ellipse cx="237.56799999999998" cy="90.11200000000001" rx="16.384" ry="12.288" fill="white" opacity="0.6"/>
+  </g>
+
+  <!-- Glow overlay -->
+  <circle cx="256" cy="256" r="170.66666666666666" fill="url(#glow)" opacity="0.3"/>
+</svg>
