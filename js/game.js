@@ -43,7 +43,7 @@ const CONFIG = {
 
     // Level settings
     level: {
-        duration: 60000        // 60 seconds = 1 minute per level
+        duration: 45000        // 45 seconds per level
     },
 
     // Background settings
